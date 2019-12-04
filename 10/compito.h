@@ -14,6 +14,8 @@ class Cinema{
 		
 	private:
 		/* Attributes */
+		const int maxFile = 26;
+		const int maxPosti = 9;
 		char nome[31];
 		int nFile;
 		int nPosti;

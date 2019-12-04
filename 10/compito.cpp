@@ -4,7 +4,10 @@
 
 Cinema::Cinema(int nFile, int nPosti, const char* nome){
 	
-	strncpy(this->nome, nome, 30);
+	if(nFile < 0 || nFile > maxFile) nFile = maxFile;
+	if(nPosti < 0 || nPosti > maxPosti) nPosti = maxPosti; 
+	
+	strncpy(this->nome, nome, 31);
 	this->nPosti = nPosti;
 	this->nFile = nFile;
 
@@ -18,6 +21,8 @@ bool Cinema::prenota(char fila, int posto){
 	fila = fila - 'A';
 	posto--;
 	
+	if(fila < 0 || fila >= nFile || posto < 0 || posto >= nPosti) return false;
+	
 	if(stato[fila][posto]) return false;
 	stato[fila][posto] = true;
 
@@ -27,6 +32,8 @@ bool Cinema::prenota(char fila, int posto){
 bool Cinema::cancella(char fila, int posto){
 	fila = fila - 'A';
 	posto--;
+
+	if(fila < 0 || fila >= nFile || posto < 0 || posto >= nPosti) return false;
 	
 	if(!stato[fila][posto]) return false;
 	stato[fila][posto] = false;
