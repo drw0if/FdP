@@ -39,7 +39,7 @@ void Cinema::stampa(){
 	std::cout << "Nome del cinema: " << nome << std::endl;
 	
 	std::cout << " ";
-	for(int i = 0; i < nPosti; i++) std::cout << i;
+	for(int i = 1; i <= nPosti; i++) std::cout << i;
 	
 	std::cout << std::endl;
 	
